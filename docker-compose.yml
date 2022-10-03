@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: db_inventory_control
+    environment:
+      POSTGRES_PASSWORD: "root"
+    ports:
+      - 5432:5432
