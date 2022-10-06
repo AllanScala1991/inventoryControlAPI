@@ -1,4 +1,4 @@
-package com.example.inventorycontrol.api.dto;
+package com.example.inventorycontrol.api.dto.user;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

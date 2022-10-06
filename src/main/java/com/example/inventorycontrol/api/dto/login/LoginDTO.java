@@ -1,4 +1,4 @@
-package com.example.inventorycontrol.api.dto;
+package com.example.inventorycontrol.api.dto.login;
 
 import javax.validation.constraints.NotBlank;
 import java.util.UUID;

@@ -1,6 +1,6 @@
 package com.example.inventorycontrol.api.controller;
 
-import com.example.inventorycontrol.api.dto.LoginDTO;
+import com.example.inventorycontrol.api.dto.login.LoginDTO;
 import com.example.inventorycontrol.api.model.UserModel;
 import com.example.inventorycontrol.api.service.UserService;
 import org.json.JSONObject;

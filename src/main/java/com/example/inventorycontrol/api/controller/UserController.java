@@ -1,8 +1,8 @@
 package com.example.inventorycontrol.api.controller;
 
-import com.example.inventorycontrol.api.dto.UserCreateDTO;
-import com.example.inventorycontrol.api.dto.UserResponseDTO;
-import com.example.inventorycontrol.api.dto.UserUpdateDTO;
+import com.example.inventorycontrol.api.dto.user.UserCreateDTO;
+import com.example.inventorycontrol.api.dto.user.UserResponseDTO;
+import com.example.inventorycontrol.api.dto.user.UserUpdateDTO;
 import com.example.inventorycontrol.api.model.UserModel;
 import com.example.inventorycontrol.api.service.UserService;
 import org.json.JSONObject;
