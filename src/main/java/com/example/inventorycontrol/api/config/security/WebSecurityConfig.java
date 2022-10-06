@@ -20,6 +20,7 @@ public class WebSecurityConfig{
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers(HttpMethod.POST, "/inventory/api/user").permitAll()
+                .antMatchers(HttpMethod.POST, "/inventory/api/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
