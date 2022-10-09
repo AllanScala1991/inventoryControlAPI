@@ -10,4 +10,8 @@ import java.util.UUID;
 @Repository
 public interface ProviderRepository extends JpaRepository<ProviderModel, UUID> {
     Optional<ProviderModel> findByFantasyName(String fantasyName);
+
+    boolean existsByCnpj(String cnpj);
+
+    boolean existsByMail(String mail);
 }

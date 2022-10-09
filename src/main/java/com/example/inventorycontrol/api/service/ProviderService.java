@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -25,6 +26,18 @@ public class ProviderService {
 
     public Optional<ProviderModel> findProviderByFantasyName(String fantasyName) {
         return providerRepository.findByFantasyName(fantasyName);
+    }
+
+    public List<ProviderModel> findAllProviders() {
+        return providerRepository.findAll();
+    }
+
+    public boolean existsByCnpj(String cnpj) {
+        return providerRepository.existsByCnpj(cnpj);
+    }
+
+    public boolean existsByMail(String mail){
+        return providerRepository.existsByMail(mail);
     }
 
     public void deleteProviderById(UUID id) {

@@ -17,7 +17,7 @@ public class ProviderModel implements Serializable {
     @Column(nullable = false, length = 200)
     String corporateName;
 
-    @Column(nullable = true, length = 14)
+    @Column(nullable = true, length = 14, unique = true)
     String cnpj;
 
     @Column(nullable = false, length = 200)
@@ -32,7 +32,7 @@ public class ProviderModel implements Serializable {
     @Column(nullable = false, length = 30)
     String phone;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, unique = true)
     String mail;
 
     @Column(nullable = false)
