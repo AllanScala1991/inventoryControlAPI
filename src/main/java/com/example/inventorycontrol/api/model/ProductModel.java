@@ -16,6 +16,10 @@ public class ProductModel implements Serializable{
     @Column(nullable = false)
     UUID productGroupId;
 
+    @Id
+    @Column(nullable = false)
+    UUID productProviderId;
+
     @Column(nullable = false, length = 100)
     String name;
 
@@ -107,5 +111,13 @@ public class ProductModel implements Serializable{
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public UUID getProductProviderId() {
+        return productProviderId;
+    }
+
+    public void setProductProviderId(UUID productProviderId) {
+        this.productProviderId = productProviderId;
     }
 }
