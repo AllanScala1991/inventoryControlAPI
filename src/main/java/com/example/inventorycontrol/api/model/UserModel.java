@@ -4,15 +4,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "Users")
-public class UserModel implements Serializable, UserDetails {
+public class UserModel implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     @Id

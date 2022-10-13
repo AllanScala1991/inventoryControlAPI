@@ -1,7 +1,6 @@
 package com.example.inventorycontrol.api.dto.login;
 
 import javax.validation.constraints.NotBlank;
-import java.util.UUID;
 
 public class LoginDTO {
     @NotBlank String username;

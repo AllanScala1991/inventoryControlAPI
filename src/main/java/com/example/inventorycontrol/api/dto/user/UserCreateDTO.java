@@ -2,8 +2,6 @@ package com.example.inventorycontrol.api.dto.user;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.UUID;
-
 public class UserCreateDTO {
     @NotBlank
     @Size(max = 150)

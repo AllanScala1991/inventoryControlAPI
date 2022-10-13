@@ -3,7 +3,6 @@ package com.example.inventorycontrol.api.config.security;
 import com.example.inventorycontrol.api.model.UserModel;
 import com.example.inventorycontrol.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
