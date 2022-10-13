@@ -8,5 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface ProductGroupRepository extends JpaRepository<ProductGroupModel, UUID> {
-
+    boolean existsByName(String name);
 }

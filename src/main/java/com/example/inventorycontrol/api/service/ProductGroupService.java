@@ -22,6 +22,10 @@ public class ProductGroupService {
         return productGroupRepository.findAll();
     }
 
+    public boolean existsProductByName(String name) {
+        return productGroupRepository.existsByName(name);
+    }
+
     public ProductGroupModel createProductGroup(ProductGroupModel productGroupModel) {
         return productGroupRepository.save(productGroupModel);
     }
