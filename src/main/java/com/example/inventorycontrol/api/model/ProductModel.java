@@ -1,6 +1,7 @@
 package com.example.inventorycontrol.api.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import javax.persistence.*;
@@ -12,13 +13,8 @@ public class ProductModel implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     UUID id;
 
-    @Id
-    @Column(nullable = false)
-    UUID productGroupId;
-
-    @Id
-    @Column(nullable = false)
-    UUID productProviderId;
+    @Column(nullable = false, length = 14)
+    String providerCnpj;
 
     @Column(nullable = false, length = 100)
     String name;
@@ -30,10 +26,10 @@ public class ProductModel implements Serializable{
     String unitOfMeasurement;
 
     @Column(nullable = false)
-    double cost;
+    BigDecimal cost;
 
     @Column(nullable = false)
-    double salePrice;
+    BigDecimal salePrice;
 
     @Column(nullable = false)
     LocalDateTime createdAt;
@@ -49,14 +45,6 @@ public class ProductModel implements Serializable{
         this.id = id;
     }
 
-    public UUID getProductGroupId() {
-        return productGroupId;
-    }
-
-    public void setProductGroupId(UUID productGroupId) {
-        this.productGroupId = productGroupId;
-    }
-
     public String getName() {
         return name;
     }
@@ -67,6 +55,14 @@ public class ProductModel implements Serializable{
 
     public String getProductBrand() {
         return productBrand;
+    }
+
+    public String getProviderCnpj() {
+        return providerCnpj;
+    }
+
+    public void setProviderCnpj(String providerCnpj) {
+        this.providerCnpj = providerCnpj;
     }
 
     public void setProductBrand(String productBrand) {
@@ -81,19 +77,19 @@ public class ProductModel implements Serializable{
         this.unitOfMeasurement = unitOfMeasurement;
     }
 
-    public double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 
-    public double getSalePrice() {
+    public BigDecimal getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(double salePrice) {
+    public void setSalePrice(BigDecimal salePrice) {
         this.salePrice = salePrice;
     }
 
@@ -111,13 +107,5 @@ public class ProductModel implements Serializable{
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public UUID getProductProviderId() {
-        return productProviderId;
-    }
-
-    public void setProductProviderId(UUID productProviderId) {
-        this.productProviderId = productProviderId;
     }
 }

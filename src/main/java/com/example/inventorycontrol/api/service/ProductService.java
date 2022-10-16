@@ -36,8 +36,8 @@ public class ProductService {
         return productRepository.existsByName(name);
     }
 
-    public Optional<ProductModel> findByProductProviderId(UUID productProviderId) {
-        return productRepository.findByProductProviderId(productProviderId);
+    public List<ProductModel> findProductByProviderCnpj(String cnpj) {
+        return productRepository.findByProviderCnpj(cnpj);
     }
 
     @Transactional

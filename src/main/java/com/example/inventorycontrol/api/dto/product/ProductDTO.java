@@ -1,15 +1,16 @@
 package com.example.inventorycontrol.api.dto.product;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public class ProductDTO {
-    @NotBlank
-    UUID productGroupId;
 
     @NotBlank
-    UUID productProviderId;
+    @Size(max = 14)
+    String providerCnpj;
 
     @NotBlank
     @Size(max = 100)
@@ -23,27 +24,11 @@ public class ProductDTO {
     @Size(max = 3)
     String unitOfMeasurement;
 
-    @NotBlank
-    double cost;
+    @NotNull
+    BigDecimal cost;
 
-    @NotBlank
-    double salePrice;
-
-    public UUID getProductGroupId() {
-        return productGroupId;
-    }
-
-    public void setProductGroupId(UUID productGroupId) {
-        this.productGroupId = productGroupId;
-    }
-
-    public UUID getProductProviderId() {
-        return productProviderId;
-    }
-
-    public void setProductProviderId(UUID productProviderId) {
-        this.productProviderId = productProviderId;
-    }
+    @NotNull
+    BigDecimal salePrice;
 
     public String getName() {
         return name;
@@ -69,19 +54,27 @@ public class ProductDTO {
         this.unitOfMeasurement = unitOfMeasurement;
     }
 
-    public double getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 
-    public double getSalePrice() {
+    public BigDecimal getSalePrice() {
         return salePrice;
     }
 
-    public void setSalePrice(double salePrice) {
+    public void setSalePrice(BigDecimal salePrice) {
         this.salePrice = salePrice;
+    }
+
+    public String getProviderCnpj() {
+        return providerCnpj;
+    }
+
+    public void setProviderCnpj(String providerCnpj) {
+        this.providerCnpj = providerCnpj;
     }
 }
