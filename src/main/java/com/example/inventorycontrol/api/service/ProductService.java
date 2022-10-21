@@ -32,10 +32,6 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public boolean productExistsByName(String name) {
-        return productRepository.existsByName(name);
-    }
-
     public List<ProductModel> findProductByProviderCnpj(String cnpj) {
         return productRepository.findByProviderCnpj(cnpj);
     }

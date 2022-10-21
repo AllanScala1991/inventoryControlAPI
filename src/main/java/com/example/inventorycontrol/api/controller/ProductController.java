@@ -15,6 +15,8 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
@@ -51,5 +53,49 @@ public class ProductController {
         productModel.setCreatedAt(LocalDateTime.now(ZoneId.of("UTC")));
         productModel.setUpdatedAt(LocalDateTime.now(ZoneId.of("UTC")));
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.createProduct(productModel));
+    }
+
+    @GetMapping
+    public ResponseEntity<Object> findAllProducts() {
+        List<ProductModel> products = productService.findAllProducts();
+
+        if(products.isEmpty()) {
+            JSONObject response = new JSONObject();
+            response.put("message", "Product not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response.toString());
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(products);
+    }
+
+    @GetMapping("/name/{productName}")
+    public ResponseEntity<Object> findProductByName(@PathVariable(value = "productName") String productName) {
+        Optional<ProductModel> product = productService.findProductByName(productName);
+
+        if(product.isEmpty()) {
+            JSONObject response = new JSONObject();
+            response.put("message", "Product not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response.toString());
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteProduct(@PathVariable(value = "id")UUID id) {
+        Optional<ProductModel> product = productService.findProductById(id);
+
+        if(product.isEmpty()) {
+            JSONObject response = new JSONObject();
+            response.put("message", "Product not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response.toString());
+        }
+
+        productService.deleteById(id);
+
+        JSONObject response = new JSONObject();
+        response.put("message", "Product deleted.");
+
+        return ResponseEntity.status(HttpStatus.OK).body(response.toString());
     }
 }
